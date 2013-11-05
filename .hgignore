@@ -1,0 +1,51 @@
+# Ignore file for Visual Studio 2008
+
+# use glob syntax
+syntax: glob
+
+# Ignore Visual Studio 2008 files
+*.obj
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.scc
+*.exclude
+*.ncrunchproject
+*.orig
+[Bb]in/*.dll
+[Bb]in/*.xml
+[Db]ebug*/
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*
+[Bb]uild[Ll]og.*
+*.[Pp]ublish.xml
+
+[Bb]in/UAT/
+[Bb]in/CI/
+packages/elmah.sqlserver.1.2/elmah.sqlserver.1.2.nupkg
+packages/elmah.sqlserver.1.2/content/web.config.transform
+packages/elmah.sqlserver.1.2/content/App_Readme/Elmah.SqlServer.txt
+packages/elmah.sqlserver.1.2/content/App_Readme/Elmah.SqlServer.sql
+packages/elmah.corelibrary.1.2.1/lib/Elmah.dll
+packages/elmah.corelibrary.1.2.1/elmah.corelibrary.1.2.1.nupkg
+packages/elmah.1.2.0.1/elmah.1.2.0.1.nupkg
+packages/elmah.1.2.0.1/content/web.config.transform
+.nuget/NuGet.targets
+.nuget/NuGet.exe
+.hgrc

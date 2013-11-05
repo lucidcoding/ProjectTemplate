@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ProjectTemplate.WCF.DataTransferObjects" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ProjectTemplate.WCF.DataTransferObjects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:60716/TaskService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:60716/TaskService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ProjectTemplate.Domain.Enumerations" />
+  <xs:import schemaLocation="http://localhost:60716/TaskService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfTaskDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskDto" nillable="true" type="tns:TaskDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskDto" nillable="true" type="tns:ArrayOfTaskDto" />
+  <xs:complexType name="TaskDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssignedTo" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DueDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastModifiedBy" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="LastModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ProjectTemplate.Domain.Enumerations" minOccurs="0" name="RagStatus" type="q1:RagStatus" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ProjectTemplate.Domain.Enumerations" minOccurs="0" name="Status" type="q2:TaskStatus" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="tns:TaskTypeDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskDto" nillable="true" type="tns:TaskDto" />
+  <xs:complexType name="UserDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastModifiedBy" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="LastModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PermissionKeys" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="tns:RoleDto" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDto" nillable="true" type="tns:UserDto" />
+  <xs:complexType name="RoleDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastModifiedBy" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="LastModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PermissionRoles" nillable="true" type="tns:ArrayOfPermissionRoleDto" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoleDto" nillable="true" type="tns:RoleDto" />
+  <xs:complexType name="ArrayOfPermissionRoleDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PermissionRoleDto" nillable="true" type="tns:PermissionRoleDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPermissionRoleDto" nillable="true" type="tns:ArrayOfPermissionRoleDto" />
+  <xs:complexType name="PermissionRoleDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastModifiedBy" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="LastModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Permission" nillable="true" type="tns:PermissionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PermissionRoleDto" nillable="true" type="tns:PermissionRoleDto" />
+  <xs:complexType name="PermissionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastModifiedBy" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="LastModifiedOn" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PermissionDto" nillable="true" type="tns:PermissionDto" />
+  <xs:complexType name="TaskTypeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastModifiedBy" nillable="true" type="tns:UserDto" />
+      <xs:element minOccurs="0" name="LastModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ServiceLevelAgreementMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="WarningWindowMinutes" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskTypeDto" nillable="true" type="tns:TaskTypeDto" />
+</xs:schema>

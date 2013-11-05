@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD6D3EE6-3FF4-4D1E-AE3E-FE36297267A8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectTemplate.WCF</RootNamespace>
+    <AssemblyName>ProjectTemplate.WCF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="StructureMap">
+      <HintPath>..\Lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TaskService.svc" />
+    <Content Include="UserService.svc" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ErrorHandling\ApplicationFault.cs" />
+    <Compile Include="Common\ErrorHandling\ErrorHandingBehaviorAttribute.cs" />
+    <Compile Include="Common\ErrorHandling\ErrorHandler.cs" />
+    <Compile Include="Common\Logging\RequestLoggingBehaviourAttribute.cs" />
+    <Compile Include="Common\Logging\RequestLoggingDispatchMessageInspector.cs" />
+    <Compile Include="Common\SessionHandling\SessionClosingBehaviourAttribute.cs" />
+    <Compile Include="Common\SessionHandling\SessionClosingDispatchMessageInspector.cs" />
+    <Compile Include="Common\StructureMap\StructureMapInstanceProvider.cs" />
+    <Compile Include="Common\StructureMap\StructureMapServiceBehavior.cs" />
+    <Compile Include="Common\ErrorHandling\ValidationFault.cs" />
+    <Compile Include="Common\ErrorHandling\ValidationFaultException.cs" />
+    <Compile Include="Common\ErrorHandling\ValidationFaultMessage.cs" />
+    <Compile Include="Core\WcfRegistry.cs" />
+    <Compile Include="DataTransferObjects\PermissionDto.cs" />
+    <Compile Include="DataTransferObjects\PermissionRoleDto.cs" />
+    <Compile Include="DataTransferObjects\RoleDto.cs" />
+    <Compile Include="DataTransferObjects\TaskDto.cs" />
+    <Compile Include="DataTransferObjects\TaskTypeDto.cs" />
+    <Compile Include="DataTransferObjects\UserDto.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ITaskService.cs" />
+    <Compile Include="IUserService.cs" />
+    <Compile Include="Mappers\PermissionDtoMapper.cs" />
+    <Compile Include="Mappers\PermissionRoleDtoMapper.cs" />
+    <Compile Include="Mappers\RoleDtoMapper.cs" />
+    <Compile Include="Mappers\TaskDtoMapper.cs" />
+    <Compile Include="Mappers\TaskTypeDtoMapper.cs" />
+    <Compile Include="Mappers\UserDtoMapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskService.svc.cs">
+      <DependentUpon>TaskService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="UserService.svc.cs">
+      <DependentUpon>UserService.svc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Requests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectTemplate.Application\ProjectTemplate.Application.csproj">
+      <Project>{343EE9CE-5DC0-4E25-859B-8DCE9AF413D2}</Project>
+      <Name>ProjectTemplate.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectTemplate.Data\ProjectTemplate.Data.csproj">
+      <Project>{5A3EB2F3-F49B-4F28-9936-A3A36AEB605B}</Project>
+      <Name>ProjectTemplate.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectTemplate.Domain\ProjectTemplate.Domain.csproj">
+      <Project>{C8A18468-6E53-492A-AF31-52B51F3B4535}</Project>
+      <Name>ProjectTemplate.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60716</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <EnableWcfTestClientForSVCDefaultValue>True</EnableWcfTestClientForSVCDefaultValue>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
